@@ -13,7 +13,7 @@ const containers = {
 
 
 function createCards(characters, container, isVip = false) {
-  container.innerHTML = ''; // очищаем перед добавлением
+  container.innerHTML = ''; 
   characters.forEach(character => {
     const card = document.createElement('div');
     card.classList.add('character-card');
