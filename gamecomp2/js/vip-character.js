@@ -12,7 +12,7 @@ if (character) {
   const nameEl = document.getElementById('character-name');
   const descEl = document.getElementById('character-description');
 
-  imageEl.src = character.icon; // или fullImage, если есть отдельная картинка
+  imageEl.src = character.icon;
   imageEl.alt = character.name;
   nameEl.textContent = character.name;
   descEl.textContent = character.description;
