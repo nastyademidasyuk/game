@@ -1,0 +1,150 @@
+/* --- Общие настройки страницы --- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #0a0d13; /* темный фон */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* --- Заголовок VIP предложения --- */
+h1.vip-title {
+  font-size: 3em;
+  color: #ffd700; /* золотой */
+  text-align: center;
+  margin-top: 40px;
+  text-shadow:
+    0 0 5px #ffd700,
+    0 0 10px #ffea00,
+    0 0 20px #ffcc00,
+    0 0 40px #fff700;
+}
+
+/* --- Контейнер с предложением --- */
+.vip-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 800px;
+  padding: 20px;
+}
+
+/* --- Картинка VIP предложения --- */
+.vip-container img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  border: 4px solid #ffd700; /* золотая рамка */
+  box-shadow: 0 0 20px #ffd700, 0 0 40px #ffea00;
+  object-fit: cover;
+}
+
+/* --- Текст описания предложения --- */
+.vip-description {
+  font-size: 1.5em;
+  color: #ffd700;
+  text-align: center;
+  text-shadow:
+    0 0 5px #ffd700,
+    0 0 10px #ffea00,
+    0 0 20px #ffcc00;
+}
+
+/* --- Кнопка обратно / переход --- */
+.vip-button {
+  margin-top: 30px;
+  padding: 12px 25px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #0a0d13;
+  background: #ffd700;
+  border: 2px solid #ffea00;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.vip-button:hover {
+  background: #ffea00;
+  box-shadow: 0 0 15px #ffd700, 0 0 30px #ffea00;
+}
+/* Общий стиль персонажа */
+#character-full img {
+  width: 300px;
+  max-width: 90%;
+  border-radius: 15px;
+  display: block;
+  margin: 0 auto;
+}
+
+.description-box {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* VIP стиль — золотой текст и рамка */
+.vip-character {
+  color: gold;
+}
+
+.vip-character img {
+  border: 3px solid gold;
+}
+/* Контейнер для VIP-предложения */
+.vip-full {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #1c1c1c; /* тёмный фон для контраста */
+  min-height: 100vh;
+}
+
+/* Картинка VIP */
+#vip-image {
+  width: 300px;       /* уменьшаем размер картинки */
+  max-width: 90%;
+  border: 5px solid gold; /* золотая обводка */
+  border-radius: 15px;     /* скругление углов */
+  box-shadow: 0 0 20px gold; /* лёгкое сияние */
+  margin-bottom: 20px;
+}
+
+/* Название VIP-предложения */
+#vip-name {
+  font-size: 2rem;
+  color: gold;       /* золотой текст */
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px gold;
+}
+
+/* Описание */
+#vip-description {
+  font-size: 1.2rem;
+  color: #f0e68c;   /* мягкий золотистый оттенок */
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+/* Ссылка "Вернуться назад" */
+.vip-full a {
+  margin-top: 30px;
+  text-decoration: none;
+  color: gold;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.vip-full a:hover {
+  text-shadow: 0 0 10px gold;
+}

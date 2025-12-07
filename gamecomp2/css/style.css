@@ -1,0 +1,614 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+* { box-sizing: border-box; }
+
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:#0a0d13;
+  color:#111;
+  margin: 0; /* самый важный момент */
+
+}
+
+.banner {
+  width: 100%;
+  max-height: 550px; /* делаем уже */
+  overflow: hidden;  /* скрываем лишнее */
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* чтобы картинка красиво кадрировалась */
+  display: block;
+}
+/* Убираем лишний отступ под баннером */
+.banner__side {
+  height: 50px; /* было 200px — слишком много */
+  margin: 0;
+  padding: 0;
+}
+
+/* Убираем скрытые отступы сверху у секции */
+section {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Убираем возможный отступ у заголовка */
+.page-title {
+  margin-top: 10px; /* было больше — уменьшили */
+}
+
+
+.page-title {
+  text-align: center;
+  font-size: 42px;
+  margin-top: 40px;
+  color: #d76bff; /* основной фиолетовый */
+
+  font-family: 'Orbitron', sans-serif; /* неоновый шрифт */
+  letter-spacing: 3px;
+
+  /* НЕОНОВОЕ СВЕЧЕНИЕ */
+  text-shadow:
+    0 0 5px #d76bff,
+    0 0 10px #b033ff,
+    0 0 20px #8b00ff,
+    0 0 40px #b033ff;
+}
+
+
+
+.swiper {
+  width: 100%;
+  max-width: 700px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* Размер каждого слайда */
+.swiper-slide {
+  width: 180px;          /* ширина ниже, чем была */
+  height: 280px;         /* уменьшенная высота */
+  transition: 0.3s;
+  opacity: 0.4;
+  filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+/* УНИФИЦИРУЕМ КАРТИНКИ */
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* ровно подгоняет картинку под размер блока */
+  display: block;
+  border-radius: 20px;
+}
+
+/* Центральная картинка */
+.swiper-slide-active {
+  opacity: 1 !important;
+  filter: none !important;
+  transform: scale(1.15);
+}
+
+/* Overlay при наведении */
+.overlay {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  color: #00ffff;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  opacity: 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.swiper-slide:hover .overlay {
+  opacity: 1;
+}
+
+/* Неоновые стрелки */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #0ff;
+  width: 50px;
+  height: 50px;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+/* Псевдо-информация о персонаже */
+.character-info {
+  margin-top: 20px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+}
+
+.character-info h3 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  text-shadow: 0 0 5px #0ff;
+}
+
+.character-info p {
+  font-size: 16px;
+  text-shadow: 0 0 5px #0ff;
+}
+
+
+/* ОСНОВНАЯ СЕРАЯ ПОЛУПРОЗРАЧНАЯ ПЛАШКА */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+
+  background: rgba(50, 50, 50, 0.6); /* полупрозрачный серый */
+  color: #fff;
+
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+
+  opacity: 0;
+  transition: 0.3s;
+  cursor: pointer;
+
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+/* Появление при наведении */
+.swiper-slide:hover .overlay {
+  opacity: 1;
+}
+
+/* VIP — золотая неоновая плашка */
+.swiper-slide.vip .overlay {
+  background: rgba(255, 215, 0, 0.25); /* мягкое золото */
+  color: #ffea8a;
+
+  text-shadow:
+    0 0 8px #ffd700,
+    0 0 15px #ffcc00,
+    0 0 25px #ffea00;
+  font-weight: 900;
+  letter-spacing: 1px;
+  border-top: 2px solid rgba(255, 215, 0, 0.6);
+}
+.overlay:active {
+  opacity: 1 !important;
+}
+
+
+/* БАЗОВЫЙ overlay */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 12px 0;
+
+  background: rgba(50, 50, 50, 0.6);
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  font-size: 25px;
+
+  opacity: 0;
+  transition: opacity 0.25s ease;
+
+  pointer-events: auto;
+  z-index: 20;
+}
+
+/* Появление при наведении */
+.swiper-slide:hover .overlay {
+  opacity: 1;
+}
+
+/* НЕ исчезает при клике */
+.overlay:active,
+.overlay:focus {
+  opacity: 1 !important;
+}
+
+/* Картинка не ловит клики — нужно overlay */
+.swiper-slide img {
+  pointer-events: none;
+}
+
+/* ❗ Сам слайд кликаемый (Swiper может листать) */
+.swiper-slide {
+  pointer-events: auto;
+}
+
+.icons-container {
+  margin-top: 40px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.icons-container img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid #fff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.icons-container img:hover {
+  transform: scale(1.1);
+  border-color: #0ff;
+}
+/* Неоновый заголовок */
+.neon-title {
+  text-align: center;
+  font-size: 3em;
+  color: #00f5ff;
+  text-shadow:
+    0 0 5px #00f5ff,
+    0 0 10px #00f5ff,
+    0 0 20px #00f5ff,
+    0 0 40px #00f5ff;
+  margin-bottom: 30px;
+}
+
+
+
+
+
+
+#mythical-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.character-card {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.character-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.character-card:hover img {
+  transform: scale(1.1);
+}
+
+.character-card .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  color: #00f5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s;
+  text-align: center;
+}
+
+.character-card:hover .overlay {
+  opacity: 1;
+}
+
+.description-box {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #00f5ff;
+  min-height: 60px; /* чтобы блок не прыгал */
+}
+
+
+.character-full {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.character-full img {
+  width: 300px; /* большой рост */
+  max-width: 90%;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+/* Контейнер мифических персонажей */
+#mythical-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Карточка персонажа */
+.character-card {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 2px solid #00f5ff; /* неоновая рамка */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.character-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+  border-radius: 13px;
+}
+
+.character-card:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #00f5ff, 0 0 25px #00f5ff inset;
+}
+
+/* Overlay как кнопка */
+.character-card .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #0ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  opacity: 1; /* сразу видно кнопку */
+  cursor: pointer;
+  border-top: 1px solid #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.character-card .overlay:hover {
+  background-color: rgba(0, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Заголовок под карточками */
+.character-description h3 {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+  margin: 10px 0 5px 0;
+}
+
+.character-description p {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+  font-size: 14px;
+}
+
+
+
+.character-full {
+  text-align: center;
+  margin-top: 50px;
+  color: #00f5ff;
+  font-family: 'Orbitron', sans-serif; /* неоновый стиль */
+}
+
+.character-full img {
+  width: 300px;
+  max-width: 90%;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  border: 3px solid #0ff; /* рамка */
+  box-shadow: 0 0 20px #00f5ff, 0 0 40px #0ff, 0 0 60px #0ff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.character-full img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #00f5ff, 0 0 60px #0ff, 0 0 90px #0ff;
+}
+
+.character-full h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px #00f5ff, 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+.character-full p {
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  text-shadow: 0 0 5px #00f5ff, 0 0 10px #0ff;
+}
+
+.character-full a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #0ff;
+  font-weight: bold;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #00f5ff;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.character-full a:hover {
+  color: #fff;
+  text-shadow: 0 0 20px #00f5ff, 0 0 40px #0ff;
+}
+
+#legendary-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.character-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid #fff; /* рамка */
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.character-card:hover img {
+  transform: scale(1.1);
+  border-color: #0ff; /* неон */
+}
+
+.character-card .overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: #00f5ff;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+.character-card {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 15px;
+  flex-shrink: 0; /* чтобы карточки не сжимались */
+}
+
+#rare-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* прячем полосу прокрутки для красоты (необязательно) */
+#rare-container::-webkit-scrollbar {
+  display: none;
+}
+
+#vip-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.character-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid #fff; /* рамка */
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.character-card:hover img {
+  transform: scale(1.1);
+  border-color: #0ff; /* неон */
+}
+
+.character-card .overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: #00f5ff;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+.character-card {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 15px;
+  flex-shrink: 0; /* чтобы карточки не сжимались */
+}
+
+#rare-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* прячем полосу прокрутки для красоты (необязательно) */
+#rare-container::-webkit-scrollbar {
+  display: none;
+}
+
+
+.character-card.vip {
+  border: 3px solid gold;
+  box-shadow: 0 0 20px gold, 0 0 40px rgba(255, 215, 0, 0.5);
+}
+
+.vip-img {
+  filter: drop-shadow(0 0 10px gold) brightness(1.2);
+}
+
+.vip-title {
+  color: gold;
+  text-shadow: 0 0 10px gold, 0 0 20px orange;
+}
+/* Золотой overlay только для VIP */
+.character-card.vip .overlay {
+  border: 2px solid gold;
+  background: rgba(255, 215, 0, 0.15); /* Лёгкий золотой оттенок */
+  color: gold;
+  text-shadow: 0 0 10px gold;
+  box-shadow: 0 0 15px gold;
+}
+
+/* При наведении — сильнее сияние */
+.character-card.vip .overlay:hover {
+  background: rgba(255, 215, 0, 0.25);
+  box-shadow: 0 0 20px gold, 0 0 40px goldenrod;
+}
+
+
